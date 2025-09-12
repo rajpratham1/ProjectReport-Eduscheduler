@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Report: EduScheduler</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS for the "Hyper-Tech" look */
+
+        :root {
+            --bg-dark-main: #111827;      /* Deep dark blue-gray */
+            --bg-dark-secondary: #1F2937; /* Lighter dark blue-gray */
+            --border-color: #374151;     /* Muted border color */
+            --text-primary: #E5E7EB;     /* Light gray for body text */
+            --text-secondary: #9CA3AF;   /* Muted gray for subtitles */
+            --accent-blue: #38BDF8;       /* Bright blue for links and accents */
+            --accent-purple: #A78BFA;     /* Purple for gradients */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark-main);
+            color: var(--text-primary);
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(56, 189, 248, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 75% 75%, rgba(167, 139, 250, 0.1) 0%, transparent 20%);
+            background-size: 100px 100px;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: var(--bg-dark-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 30px;
+        }
+
+        header img {
+            width: 120px;
+            margin-bottom: 20px;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        header h3, header p {
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+        
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: var(--accent-blue);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        p, ul, blockquote {
+            font-size: 1.05em;
+            font-weight: 300;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--accent-blue);
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-purple);
+            text-decoration: underline;
+            text-shadow: 0 0 5px var(--accent-purple);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        thead {
+            background-color: #374151;
+            font-weight: 600;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #1a222f;
+        }
+        
+        ul {
+            list-style: none;
+            padding-left: 5px;
+        }
+
+        ul li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+        ul li::before {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            font-size: 1.2em;
+        }
+        
+        /* Custom bullets for different sections */
+        #features ul li::before { content: '✨'; }
+        #tech-stack ul li::before { content: '💻'; }
+        #impact ul li::before { content: '🚀'; }
+        #future ul li::before { content: '🔮'; }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="https://i.imgur.com/rS22A4E.png" alt="EduScheduler Logo">
+            <h1>Project Report: EduScheduler</h1>
+            <h3>An AI-Powered Automated Timetable Generation System</h3>
+            <p><strong>A Solution for the Government of Jharkhand</strong></p>
+            <br>
+            <p><strong>Prepared By:</strong> Pratham Kumar</p>
+            <p><strong>Date:</strong> September 12, 2025</p>
+        </header>
+
+        <section id="abstract">
+            <h2>Abstract</h2>
+            <blockquote>
+                EduScheduler is a next-generation web application that leverages the power of Artificial Intelligence to solve one of the most complex administrative challenges in educational institutions: timetable scheduling. This project replaces the time-consuming, error-prone manual process with a smart, automated system that generates optimized, conflict-free schedules in seconds. With an intuitive user interface and powerful features like PDF export and direct sharing, EduScheduler is poised to revolutionize academic administration.
+            </blockquote>
+        </section>
+
+        <section id="links">
+            <h2>1. Project Quick Access Links</h2>
+            <p>Here are the essential resources for the EduScheduler project, providing a complete overview from concept to execution.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Resource</th>
+                        <th>URL / Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🎓 <strong>Live Website</strong></td>
+                        <td><a href="https://eduscheduler-ai.onrender.com/" target="_blank">EduScheduler - AI Timetable Generator</a></td>
+                    </tr>
+                    <tr>
+                        <td>📊 <strong>Presentation (PPT)</strong></td>
+                        <td><a href="https://github.com/rajpratham1/EduScheduler-2/blob/main/HEXATECH_(30[1].pdf" target="_blank">View Presentation PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>📄 <strong>Documentation</strong></td>
+                        <td><a href="https://github.com/rajpratham1/EduScheduler-2/blob/main/Documentation.md" target="_blank">View Technical Documentation</a></td>
+                    </tr>
+                    <tr>
+                        <td>🎬 <strong>Video Demonstration</strong></td>
+                        <td><a href="https://github.com/rajpratham1/EduScheduler-2/blob/main/VideoDemoREADME.md" target="_blank">Watch the Video Demo</a></td>
+                    </tr>
+                    <tr>
+                        <td>💻 <strong>Source Code</strong></td>
+                        <td><a href="https://github.com/rajpratham1/EduScheduler-2" target="_blank">View on GitHub</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="introduction">
+            <h2>2. Introduction: The Scheduling Dilemma</h2>
+            <p>In any educational institution, creating a functional timetable is a critical task. The manual process is a formidable challenge, involving numerous constraints: faculty availability, resource allocation, subject sequencing, and incorporating necessary breaks. This manual effort is not only incredibly time-consuming but also highly susceptible to human error, leading to frequent revisions and disruptions.</p>
+        </section>
+
+        <section id="solution">
+            <h2>3. Our Solution: EduScheduler</h2>
+            <p>EduScheduler is a hyper-modern web application designed to eliminate these challenges entirely. By providing a simple interface for administrators to input their constraints, the application uses a sophisticated AI engine to compute and deliver an optimal timetable. Our core mission is to automate complexity, save valuable administrative hours, and create a seamless academic experience for both faculty and students.</p>
+        </section>
+
+        <section id="features">
+            <h2>4. Key Features & Functionality</h2>
+            <ul>
+                <li><strong>Dynamic Constraint Inputs:</strong> Easily add, edit, and remove Faculties, Subjects, Classrooms, and Labs.</li>
+                <li><strong>Flexible Time Management:</strong> Define custom Time Slots, Working Days, and dedicated Break Times.</li>
+                <li><strong>The AI Generation Core:</strong> A powerful AI engine processes all constraints to produce a balanced, conflict-free schedule at the click of a button.</li>
+                <li><strong>Clear & Interactive Timetable:</strong> The generated timetable is displayed in a clean, easy-to-read grid format.</li>
+                <li><strong>One-Click Export & Sharing:</strong> Instantly download a high-quality PDF and share via a WhatsApp group link.</li>
+                <li><strong>Stunning User Interface:</strong> A visually appealing dark mode with an animated "Starfield" background for an engaging user experience.</li>
+            </ul>
+        </section>
+
+        <section id="tech-stack">
+            <h2>5. The Technology Stack</h2>
+            <ul>
+                <li><strong>Frontend:</strong> Built with <strong>React</strong> and <strong>Vite</strong>, offering a blazing-fast and responsive user interface.</li>
+                <li><strong>Styling:</strong> <strong>Tailwind CSS</strong> is used for utility-first styling, enabling the creation of the sleek and modern design.</li>
+                <li><strong>AI Engine:</strong> Powered by the <strong>Gemini API</strong> for advanced reasoning and complex constraint satisfaction.</li>
+                <li><strong>Core Logic:</strong> Robust <strong>JavaScript (ES6+)</strong> to handle state management and application logic.</li>
+                <li><strong>Deployment:</strong> Continuous Integration and Deployment (CI/CD) on <strong>Render</strong>.</li>
+            </ul>
+        </section>
+
+        <section id="impact">
+            <h2>6. Project Impact & Future Scope</h2>
+            <p><strong>Immediate Impact:</strong></p>
+            <ul>
+                <li>Drastic reduction in planning time from weeks to seconds.</li>
+                <li>Guaranteed elimination of scheduling conflicts.</li>
+                <li>Optimized use of institutional resources.</li>
+            </ul>
+            <p><strong>Future Enhancements:</strong></p>
+            <ul>
+                <li>Cloud database integration to save and manage multiple timetables.</li>
+                <li>Real-time updates and notifications for schedule changes.</li>
+                <li>Dedicated portals for students and faculty to view personalized schedules.</li>
+            </ul>
+        </section>
+
+        <section id="conclusion">
+            <h2>7. Conclusion</h2>
+            <p>EduScheduler is more than just a tool; it is a complete ecosystem for intelligent academic scheduling. By combining a user-centric design with the formidable power of AI, this project provides a tangible, effective, and forward-thinking solution for the educational sector in Jharkhand and beyond. It stands as a testament to how modern technology can solve long-standing, real-world problems.</p>
+        </section>
+        
+        <footer>
+            <p>&copy; 2025 EduScheduler Project Report | Developed by Pratham Kumar</p>
+        </footer>
+    </div>
+
+</body>
+</html>
